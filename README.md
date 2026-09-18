@@ -1,9 +1,9 @@
 # Ricardo Campbell — portfolio
 
-A personal site. Page one is entirely about Ricardo — intro, education, current
-work, the resume on display, and the contact box. The navigation in the corner
-opens out to the other pages. Static HTML and CSS, no framework and no build
-step, hosted on Netlify.
+A personal site of four pages. Page one is entirely about Ricardo — intro,
+about, education and current work, ending in a footer of links. The navigation
+in the corner opens out to Projects, Resume and Contact. Static HTML and CSS, no
+framework and no build step, hosted on Netlify.
 
 The layout is a dark utility bar, a wordmark masthead, then a split hero — an
 oversized serif headline on the left against a portrait panel that bleeds to the
@@ -25,16 +25,23 @@ re-skins from those few lines.
 
 | Path            | What it is                                              |
 |-----------------|---------------------------------------------------------|
-| `index.html`    | Page one: hero, about, education, current work, resume, contact |
-| `projects.html` | The Projects page — an empty state until there is something to show |
-| `styles.css`    | The design system, shared by both pages                 |
+| `index.html`    | Page one: hero, about, education, current work          |
+| `projects.html` | Projects — an empty state until there is something to show |
+| `resume.html`   | The resume PDF, sized to exactly one screen             |
+| `contact.html`  | Contact links and a note for recruiters                 |
+| `styles.css`    | The design system, shared by all four pages             |
 | `assets/`       | Portrait and resume PDF                                 |
 | `netlify.toml`  | Tells Netlify to publish the folder as it is            |
 
-To add another page, copy `projects.html`, change the `<title>`, the
-`page-head`, and the body, then add a `<li>` to the nav in **both** existing
-pages. The nav is duplicated per page rather than shared, which is the cost of
-having no build step.
+To add another page, copy `contact.html`, change the `<title>`, the `page-head`
+and the body, then add a `<li>` to the nav in **all four** existing pages. The
+nav and footer are duplicated per page rather than shared, which is the cost of
+having no build step. Mark the current page with `aria-current="page"` — that is
+what gives it the gold underline.
+
+`resume.html` carries `class="resume-body"` on its `<body>`, which turns the page
+into a full-height flex column so the PDF viewer takes whatever height is left
+over and the page never scrolls.
 
 ## Adding projects
 

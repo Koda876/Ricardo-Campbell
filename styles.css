@@ -176,7 +176,8 @@ a { color: inherit; }
   position: relative; display: grid; place-items: center;
   padding: clamp(40px, 6vh, 72px) clamp(24px, 3vw, 56px);
   background-color: var(--paper-2);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23d99a1c' stroke-opacity='0.16' stroke-width='1.1'%3E%3Cpath d='M36 4 68 36 36 68 4 36Z'/%3E%3Cpath d='M13 13h46v46H13Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23d99a1c' stroke-opacity='0.07' stroke-width='1'%3E%3Cpath d='M36 4 68 36 36 68 4 36Z'/%3E%3Cpath d='M13 13h46v46H13Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 116px 116px;
   border-left: 1px solid var(--line);
 }
 .portrait-frame { position: relative; width: min(100%, 360px); isolation: isolate; }
@@ -352,7 +353,8 @@ footer a:hover { color: var(--gold-lit); }
   padding: clamp(52px, 7vw, 92px) 0 clamp(40px, 5vw, 64px);
   border-bottom: 1px solid var(--line);
   background-color: var(--paper-2);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23d99a1c' stroke-opacity='0.14' stroke-width='1.1'%3E%3Cpath d='M36 4 68 36 36 68 4 36Z'/%3E%3Cpath d='M13 13h46v46H13Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23d99a1c' stroke-opacity='0.07' stroke-width='1'%3E%3Cpath d='M36 4 68 36 36 68 4 36Z'/%3E%3Cpath d='M13 13h46v46H13Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 116px 116px;
 }
 .page-head h1 { font: 600 clamp(38px, 5vw, 62px)/1.06 var(--font-display); letter-spacing: -0.03em; margin: 0 0 18px; }
 .page-head p { margin: 0; color: var(--muted); font-size: 17px; max-width: 54ch; }
@@ -396,3 +398,43 @@ a.card:hover { border-color: var(--green); transform: translateY(-3px); box-shad
   padding: 1px 7px; font-family: var(--font-mono); font-size: 0.86em;
   border-radius: 2px;
 }
+
+/* ================= standalone resume page ================= */
+
+/* the resume page is one screen: the viewer takes whatever height is left over
+   after the bars, so the page itself never scrolls */
+body.resume-body { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+body.resume-body > footer { margin-top: auto; }
+
+.resume-page { padding: clamp(28px, 3vw, 44px) 0 clamp(28px, 3vw, 44px); display: flex; flex: 1; min-height: 0; }
+.resume-page > .wrap { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.resume-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap; margin-bottom: 26px;
+}
+.resume-bar .who { margin: 0; font-size: 15px; color: var(--muted); }
+.resume-bar .btn-row { margin-top: 0; }
+.resume-page .pdf-frame {
+  box-shadow: 0 14px 40px #16261f1f; border-color: var(--line);
+  flex: 1; display: flex; flex-direction: column; min-height: 0;
+}
+.resume-page .pdf-frame .bar { flex: none; }
+.resume-page .pdf-viewer { flex: 1; height: auto; min-height: 300px; }
+
+/* ================= standalone contact page ================= */
+
+.contact-page { padding: clamp(40px, 5vw, 72px) 0 clamp(56px, 7vw, 96px); }
+.contact-page .contact-grid { align-items: start; }
+.contact-page .links { margin-top: 0; }
+.contact-note {
+  margin-top: 30px; padding: 20px 22px; border-radius: 3px;
+  background: var(--paper-2); border: 1px solid var(--line);
+  font-size: 14.5px; color: var(--muted);
+}
+.contact-note strong { color: var(--ink); }
+
+/* ================= footer link row ================= */
+
+.foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
+.foot-links a { display: inline-flex; align-items: center; gap: 7px; }
+.foot-links svg { width: 14px; height: 14px; fill: currentColor; }
