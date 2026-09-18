@@ -1,7 +1,9 @@
 # Ricardo Campbell — portfolio
 
-A personal site: about, approach, experience and contact. Static HTML and CSS,
-no framework and no build step, hosted on Netlify.
+A personal site. Page one is entirely about Ricardo — intro, education, current
+work, the resume on display, and the contact box. The navigation in the corner
+opens out to the other pages. Static HTML and CSS, no framework and no build
+step, hosted on Netlify.
 
 The layout is a dark utility bar, a wordmark masthead, then a split hero — an
 oversized serif headline on the left against a portrait panel that bleeds to the
@@ -21,39 +23,38 @@ re-skins from those few lines.
 
 ## Files
 
-| Path          | What it is                                   |
-|---------------|----------------------------------------------|
-| `index.html`  | The whole page, plus the small scripts at the bottom |
-| `styles.css`  | The design system. Any future page shares it |
-| `assets/`     | Portrait and resume PDF                      |
-| `netlify.toml`| Tells Netlify to publish the folder as it is |
+| Path            | What it is                                              |
+|-----------------|---------------------------------------------------------|
+| `index.html`    | Page one: hero, about, education, current work, resume, contact |
+| `projects.html` | The Projects page — an empty state until there is something to show |
+| `styles.css`    | The design system, shared by both pages                 |
+| `assets/`       | Portrait and resume PDF                                 |
+| `netlify.toml`  | Tells Netlify to publish the folder as it is            |
+
+To add another page, copy `projects.html`, change the `<title>`, the
+`page-head`, and the body, then add a `<li>` to the nav in **both** existing
+pages. The nav is duplicated per page rather than shared, which is the cost of
+having no build step.
 
 ## Adding projects
 
-There is deliberately no projects section yet. When there is something of your
-own to show, add a section between Approach and Experience:
+`projects.html` shows an empty state. When there is something to put there,
+replace the `<div class="empty">` block with a grid of cards:
 
 ```html
-<section id="projects">
-  <div class="wrap">
-    <p class="sec-label">Projects</p>
-    <h2>Things I've built</h2>
-    <div class="cards">
-      <a class="card" href="...">
-        <div class="tag">Live · 2027</div>
-        <h3>Project name</h3>
-        <p>What it does, in a sentence or two.</p>
-        <p class="meta">tools · you · used</p>
-      </a>
-    </div>
-  </div>
-</section>
+<div class="cards">
+  <a class="card" href="https://github.com/Koda876/...">
+    <div class="tag">Live · 2027</div>
+    <h3>Project name</h3>
+    <p>What it does, in a sentence or two.</p>
+    <p class="meta">tools · you · used</p>
+  </a>
+</div>
 ```
 
-Then add `<li><a href="#projects">Projects</a></li>` to the masthead nav — the
-scroll highlighting picks it up automatically, with no script change. The
-`.cards` and `.card` styles came out of `styles.css` along with the section; they
-can come back from git history with `git show eae01cc:styles.css`.
+The `.cards`, `.card`, `.tag` and `.meta` styles are already in `styles.css`,
+and the first three cards get a green, gold and lapis bar across the top
+automatically.
 
 ## Filling in the content
 
@@ -84,6 +85,23 @@ Then open `http://localhost:8080`. Use the server rather than double-clicking
 
 ## Publishing
 
-The site is currently `<meta name="robots" content="noindex">`, which keeps it
-out of search engines while still letting anyone with the link open it. Remove
-that line from `index.html` when you want to be found.
+One-time setup:
+
+1. Create a repository named `portfolio` under github.com/Koda876. Do not let
+   GitHub add a README, a .gitignore or a licence — this folder already has them.
+2. From this folder:
+
+   ```bash
+   git remote add origin https://github.com/Koda876/portfolio.git
+   git push -u origin main
+   ```
+
+3. At app.netlify.com, sign in with GitHub, then **Add new site → Import an
+   existing project → GitHub → portfolio**. Leave the build command empty;
+   `netlify.toml` already sets the publish directory. Deploy.
+
+After that, every `git push` to `main` is live in about a minute.
+
+Both pages carry `<meta name="robots" content="noindex">`, which keeps the site
+out of search results while still letting anyone with the link open it. Delete
+that line from `index.html` and `projects.html` when you want to be found.
