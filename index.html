@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ricardo Campbell</title>
+<meta name="description" content="Engineering student at Louisiana State University. Projects in simulation, visualization, and software for engineering coursework.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⬡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="mark" href="/">Ricardo Campbell</a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="/resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============ hero ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Engineering &middot; Louisiana State University</p>
+        <h1>Ricardo<br>Campbell</h1>
+        <p class="lede">I build things that make engineering problems easier to see.</p>
+        <div class="prose">
+          <p>
+            I&rsquo;m a <span class="todo">civil engineering</span> student at LSU, expected
+            <span class="todo">May 2028</span>. Most of what I make starts as a problem from a
+            course I&rsquo;m taking &mdash; a force diagram that is hard to picture, a calculation
+            worth automating &mdash; and turns into something other students can actually use.
+          </p>
+          <p>
+            <span class="todo">Two sentences on what you want next: an internship, a research
+            group, a particular kind of work. Say it plainly.</span>
+          </p>
+        </div>
+        <div class="btn-row">
+          <a class="btn" href="#projects">See the projects</a>
+          <a class="btn ghost" href="/resume">Resume &rarr;</a>
+        </div>
+      </div>
+
+      <div>
+        <!-- Drop a photo at assets/portrait.jpg and swap this div for:
+             <img class="portrait" src="assets/portrait.jpg" alt="Ricardo Campbell"> -->
+        <div class="portrait portrait-ph">Add your photo<br>assets/portrait.jpg</div>
+
+        <div class="glance">
+          <p class="eyebrow" style="margin-bottom:0">At a glance</p>
+          <div class="stats">
+            <div class="stat">
+              <div class="n todo">3.7</div>
+              <div class="k">GPA, <span class="todo">College of Engineering</span></div>
+            </div>
+            <div class="stat">
+              <div class="n">1</div>
+              <div class="k">course tool shipped and in use</div>
+            </div>
+            <div class="stat">
+              <div class="n todo">4</div>
+              <div class="k">projects built end to end</div>
+            </div>
+            <div class="stat">
+              <div class="n todo">2028</div>
+              <div class="k">expected graduation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ featured project ============ -->
+  <section id="featured">
+    <div class="wrap feature-grid">
+      <div class="col-left">
+        <p class="eyebrow">Featured project</p>
+        <h2>Coding with Koda</h2>
+        <p class="lede" style="margin-top:14px; font-size:19px; color:var(--muted)">
+          Statics problems you can rotate, take apart, and change.
+        </p>
+        <p class="meta">three.js &middot; JavaScript &middot; no build step &middot; Netlify</p>
+        <div class="btn-row" style="margin-top:0">
+          <a class="btn" href="https://coding-with-koda.netlify.app" target="_blank" rel="noopener">Open the site &rarr;</a>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>
+          Statics asks you to reason about forces in three dimensions from a flat drawing
+          on a page. The drawing is the hard part &mdash; not the algebra. This site takes the
+          problems from <strong>CE 2450 Statics</strong> and draws each one as a 3D scene in the
+          browser: you orbit the camera, pull the figure apart layer by layer, drag a slider
+          to change a load, and watch the geometry answer back.
+        </p>
+        <p>
+          It shows the givens and never the answer. The point is to understand the setup,
+          not to skip it.
+        </p>
+        <p>
+          Everything is static HTML and JavaScript &mdash; no framework, no build step, no
+          server. Each course is a folder with a <code>problems.js</code> file describing its
+          problems declaratively; a shared viewer engine turns those descriptions into
+          scenes, so one improvement to the engine reaches every course at once.
+        </p>
+        <ul class="bullets">
+          <li>A declarative problem format: points, cables, forces, and dimensions, described rather than drawn</li>
+          <li>A shared 3D engine that renders any problem written in that format</li>
+          <li>Sliders that re-solve the geometry live, so a load becomes something you can feel</li>
+          <li>Free-body diagrams that build up step by step alongside the full scene</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ projects grid ============ -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Projects</p>
+          <h2>Things I&rsquo;ve built</h2>
+          <div class="prose"><p>Coursework that turned into something worth keeping, plus work of my own.</p></div>
+        </div>
+      </div>
+
+      <div class="cards">
+        <a class="card" href="https://coding-with-koda.netlify.app" target="_blank" rel="noopener">
+          <div class="tag">Live &middot; 2026</div>
+          <h3>CE 2450 Statics viewer</h3>
+          <p>Force vectors and particle equilibrium from the Fall 2026 recitations, drawn as 3D scenes you can rotate and adjust.</p>
+          <p class="meta">three.js &middot; JavaScript</p>
+        </a>
+
+        <div class="card placeholder">
+          <div class="tag">Placeholder</div>
+          <h3>Your second project</h3>
+          <p>Replace this card. What problem did it solve, and what did you use? One or two sentences is plenty.</p>
+          <p class="meta">tools &middot; you &middot; used</p>
+        </div>
+
+        <div class="card placeholder">
+          <div class="tag">Placeholder</div>
+          <h3>Your third project</h3>
+          <p>Coursework counts. A MATLAB script, a lab analysis, a CAD model, a surveying dataset &mdash; if you made it and can explain it, it belongs here.</p>
+          <p class="meta">tools &middot; you &middot; used</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ dark band ============ -->
+  <section class="band" id="about">
+    <div class="wrap">
+      <p class="eyebrow">What I work on</p>
+      <h2>Three things I keep coming back to</h2>
+      <div class="prose" style="margin-top:16px">
+        <p><span class="todo">Rewrite these three in your own words &mdash; they should be what
+        you actually care about, not what sounds good.</span></p>
+      </div>
+
+      <div class="streams">
+        <div class="stream">
+          <div class="n">01</div>
+          <h3>Making the invisible visible</h3>
+          <p>Forces, stresses, and flows are real but unseeable. Simulation and visualization turn them into something you can look at directly, which is usually where understanding starts.</p>
+        </div>
+        <div class="stream">
+          <div class="n">02</div>
+          <h3>Software for engineering work</h3>
+          <p>A lot of engineering is repetitive calculation done by hand. Small, well-made tools free up the attention for the part that actually needs judgment.</p>
+        </div>
+        <div class="stream">
+          <div class="n">03</div>
+          <h3>Teaching through the tool</h3>
+          <p>The best tools teach you something while you use them. I build so the structure of a problem is visible in the thing itself, not buried in a manual.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ contact ============ -->
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2>Let&rsquo;s talk</h2>
+        <div class="prose" style="margin-top:16px">
+          <p>
+            I&rsquo;m looking for <span class="todo">internships and project work in
+            &lt;your area&gt;</span>, and I&rsquo;m always glad to hear from people building
+            similar things. The fastest way to reach me is email.
+          </p>
+        </div>
+      </div>
+
+      <ul class="links">
+        <li>
+          <a href="mailto:ricardo.camp2025@gmail.com">
+            <span>ricardo.camp2025@gmail.com</span><span class="what">email</span>
+          </a>
+        </li>
+        <li>
+          <a class="todo" href="#">
+            <span>github.com/&lt;your-username&gt;</span><span class="what">code</span>
+          </a>
+        </li>
+        <li>
+          <a class="todo" href="#">
+            <span>linkedin.com/in/&lt;you&gt;</span><span class="what">profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="/resume">
+            <span>Resume</span><span class="what">pdf</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Ricardo Campbell</span>
+    <span>Built as static HTML, hosted on <a href="https://netlify.com" target="_blank" rel="noopener">Netlify</a></span>
+  </div>
+</footer>
+
+<script>
+  // Hairline under the nav once the page has scrolled past the top.
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+</body>
+</html>
