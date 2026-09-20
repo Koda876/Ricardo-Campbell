@@ -63,7 +63,7 @@
 <main>
 
   <div class="page-head">
-    <div class="wrap">
+    <div class="wrap narrow">
       <p class="eyebrow">Contact</p>
       <h1>Let&rsquo;s talk</h1>
       <p>
@@ -75,8 +75,8 @@
   </div>
 
   <section class="contact-page">
-    <div class="wrap contact-grid">
-      <div>
+    <div class="wrap narrow contact-grid">
+      <div class="reveal">
         <h2>The fastest way to reach me</h2>
         <div class="prose" style="margin-top:18px">
           <p>
@@ -92,7 +92,7 @@
         </div>
       </div>
 
-      <ul class="links">
+      <ul class="links reveal" data-stagger>
         <li><a href="mailto:rcamp56@lsu.edu"><span>rcamp56@lsu.edu</span><span class="what">Email</span></a></li>
         <li><a href="https://www.linkedin.com/in/ricardo-campbell-84b669419/" target="_blank" rel="noopener"><span>Ricardo Campbell</span><span class="what">LinkedIn</span></a></li>
         <li><a href="https://github.com/Koda876" target="_blank" rel="noopener"><span>github.com/Koda876</span><span class="what">GitHub</span></a></li>
@@ -114,19 +114,7 @@
   </div>
 </footer>
 
-<script>
-  const mast = document.getElementById('masthead');
-  const onScroll = () => mast.classList.toggle('scrolled', window.scrollY > 8);
-  addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  const btn = document.getElementById('menu-btn');
-  const nav = document.getElementById('mast-nav');
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded', String(open));
-  });
-</script>
+<script src="site.js"></script>
 
 </body>
 </html>

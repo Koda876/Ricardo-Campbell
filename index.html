@@ -65,7 +65,7 @@
 
 <main>
 
-  <!-- ==================== hero: about me ==================== -->
+  <!-- ==================== hero (animates on load, not on scroll) ==================== -->
   <section class="hero">
     <div class="hero-text">
       <p class="eyebrow">About me</p>
@@ -93,13 +93,13 @@
 
   <!-- ==================== about ==================== -->
   <section id="about">
-    <div class="wrap">
-      <div class="sec-head">
+    <div class="wrap narrow">
+      <div class="sec-head reveal">
         <p class="sec-label">Who I am</p>
         <h2>A little more</h2>
       </div>
 
-      <div class="prose" style="max-width:74ch">
+      <div class="prose reveal">
         <p>
           I&rsquo;m studying for a <strong>B.S. in Civil Engineering</strong> at Louisiana
           State University, on track to graduate in May 2029. What draws me to it is the
@@ -118,63 +118,36 @@
           engineering work, the kind of team, the kind of internship.</span>
         </p>
       </div>
-
-      <div class="stats">
-        <div class="stat">
-          <div class="n">2029</div>
-          <div class="k">B.S. Civil Engineering, expected</div>
-        </div>
-        <div class="stat">
-          <div class="n">15+</div>
-          <div class="k">applicants mentored through their essays</div>
-        </div>
-        <div class="stat">
-          <div class="n">CIW</div>
-          <div class="k">Data Analyst, certified 2025</div>
-        </div>
-      </div>
     </div>
   </section>
 
   <hr class="rule">
 
-  <!-- ==================== education ==================== -->
+  <!-- ==================== education (compact rows, no pills) ==================== -->
   <section id="education">
-    <div class="wrap">
-      <div class="sec-head">
+    <div class="wrap narrow">
+      <div class="sec-head reveal">
         <p class="sec-label">Education</p>
         <h2>Where I&rsquo;ve studied</h2>
       </div>
 
-      <div class="entries">
-        <div class="entry">
+      <div class="entries compact" data-stagger>
+        <div class="entry reveal">
           <div class="when">Expected May 2029</div>
           <div>
             <h3>B.S., Civil Engineering</h3>
             <div class="org">Louisiana State University</div>
-            <p>Coursework through the civil engineering core, beginning with statics and the mechanics sequence.</p>
+            <p>The civil engineering core, beginning with statics and the mechanics sequence.</p>
           </div>
-          <div class="badge">In progress</div>
         </div>
 
-        <div class="entry">
-          <div class="when">May 2025</div>
-          <div>
-            <h3>High School Diploma</h3>
-            <div class="org">Liberty Magnet High School</div>
-            <p>STEM Pathway: Introduction to Bio-Medical Sciences.</p>
-          </div>
-          <div class="badge">Graduated</div>
-        </div>
-
-        <div class="entry">
+        <div class="entry reveal">
           <div class="when">April 2025</div>
           <div>
             <h3>CIW Data Analyst</h3>
-            <div class="org">Certiport &middot; Certification</div>
-            <p>Certified in data analysis fundamentals &mdash; collection, interpretation, and presentation.</p>
+            <div class="org">Certiport &middot; certification, valid to 2028</div>
+            <p>Data collection, interpretation and presentation.</p>
           </div>
-          <div class="badge">Valid to 2028</div>
         </div>
       </div>
     </div>
@@ -182,17 +155,17 @@
 
   <hr class="rule">
 
-  <!-- ==================== current work ==================== -->
+  <!-- ==================== currently (full rows, with pills) ==================== -->
   <section id="work">
-    <div class="wrap">
-      <div class="sec-head">
+    <div class="wrap narrow">
+      <div class="sec-head reveal">
         <p class="sec-label">Currently</p>
         <h2>What I&rsquo;m doing now</h2>
         <p>Two roles I hold alongside my coursework.</p>
       </div>
 
-      <div class="entries">
-        <div class="entry">
+      <div class="entries" data-stagger>
+        <div class="entry reveal">
           <div class="when">Sep 2025 &mdash; present</div>
           <div>
             <h3>Student Worker</h3>
@@ -207,7 +180,7 @@
           <div class="badge">Current</div>
         </div>
 
-        <div class="entry">
+        <div class="entry reveal">
           <div class="when">Jan 2023 &mdash; present</div>
           <div>
             <h3>Freelance Writer</h3>
@@ -222,7 +195,7 @@
         </div>
       </div>
 
-      <div class="prose" style="margin-top:26px; font-size:15px">
+      <div class="prose reveal" style="margin-top:26px; font-size:15px">
         <p>
           Before that: Executive Assistant at Rasko&rsquo;s Haulage and Backhoe Service
           (2021&ndash;2022), building the CEO&rsquo;s scheduling system and estimating time
@@ -256,21 +229,6 @@
   </div>
 </footer>
 
-<script>
-  // Hairline under the masthead once the page has scrolled.
-  const mast = document.getElementById('masthead');
-  const onScroll = () => mast.classList.toggle('scrolled', window.scrollY > 8);
-  addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // Mobile menu.
-  const btn = document.getElementById('menu-btn');
-  const nav = document.getElementById('mast-nav');
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded', String(open));
-  });
-</script>
-
+<script src="site.js"></script>
 </body>
 </html>

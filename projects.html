@@ -14,7 +14,6 @@
 </head>
 <body>
 
-<!-- ==================== utility bar ==================== -->
 <div class="topbar">
   <div class="wrap">
     <span class="here">Civil Engineering &middot; LSU 2029</span>
@@ -36,7 +35,6 @@
   </div>
 </div>
 
-<!-- ==================== masthead ==================== -->
 <header class="masthead" id="masthead">
   <div class="wrap">
     <a class="wordmark" href="index.html">
@@ -65,30 +63,69 @@
 <main>
 
   <div class="page-head">
-    <div class="wrap">
+    <div class="wrap narrow">
       <p class="eyebrow">Projects</p>
       <h1>Things I build</h1>
-      <p>
-        Coursework that turned into something worth keeping, and work of my own. This is
-        where it will live.
-      </p>
+      <p>Field work, drawings, and the write-up for each one.</p>
     </div>
   </div>
 
   <section>
-    <div class="wrap">
-      <div class="empty">
-        <svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 0l5.2 13.6L42.4 8 37 21.2 48 24l-11 2.8 5.4 13.2-13.2-5.6L24 48l-5.2-13.6L5.6 40 11 26.8 0 24l11-2.8L5.6 8l13.2 5.6L24 0z"/></svg>
-        <h2>Nothing here yet</h2>
+    <div class="wrap narrow">
+
+      <div class="status-panel reveal">
+        <p class="sec-label">In progress</p>
+        <h2><span class="todo">As-built apartment survey</span></h2>
         <p>
-          I&rsquo;m early in my degree and building my first projects now. When one is
-          finished it will be posted here, with the source on GitHub.
+          <span class="todo">Measuring an existing apartment and drawing it to scale &mdash;
+          field sketch, dimensions taken on site, then a finished plan. Replace this
+          paragraph with two plain sentences about what the work actually involves.</span>
         </p>
-        <div class="btn-row">
-          <a class="btn" href="https://github.com/Koda876" target="_blank" rel="noopener">Follow along on GitHub</a>
-          <a class="btn ghost" href="contact.html">Get in touch</a>
-        </div>
+        <p>
+          The write-up goes up here when the drawing is finished: the problem, the field
+          sketch, the final plan, the errors I found and fixed, and what I would do
+          differently.
+        </p>
       </div>
+
+      <!-- ============================================================
+           PROJECT CARDS
+
+           When the first write-up is finished, delete the status panel above,
+           uncomment this grid, and fill in one <a class="p-card"> per project.
+           Two across on desktop, stacked on mobile. Add class="reveal" to each
+           card and data-stagger on the grid so they arrive in sequence.
+
+      <div class="p-grid" data-stagger>
+
+        <a class="p-card reveal" href="project-apartment-survey.html">
+          <!-- With a photo. Until there is one, swap this <img> for:
+               <div class="p-shot placeholder">Project photograph</div> -->
+          <img class="p-shot" src="assets/projects/apartment-survey.jpg"
+               alt="Finished floor plan of the surveyed apartment"
+               width="1200" height="750" loading="lazy">
+          <div class="p-body">
+            <h3>As-built apartment survey</h3>
+            <p>
+              Measured an existing apartment on site and drew it to scale. Two
+              dimensions disagreed by 40mm; the write-up shows how I found which
+              one was wrong.
+            </p>
+            <ul class="p-tags">
+              <li>Field survey</li>
+              <li>AutoCAD</li>
+              <li>Hand sketch</li>
+            </ul>
+            <div class="p-foot">
+              <span class="go">Read the write-up &rarr;</span>
+              <span class="pdf">PDF &middot; 6 pages</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+      ============================================================ -->
+
     </div>
   </section>
 
@@ -105,19 +142,6 @@
   </div>
 </footer>
 
-<script>
-  const mast = document.getElementById('masthead');
-  const onScroll = () => mast.classList.toggle('scrolled', window.scrollY > 8);
-  addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  const btn = document.getElementById('menu-btn');
-  const nav = document.getElementById('mast-nav');
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded', String(open));
-  });
-</script>
-
+<script src="site.js"></script>
 </body>
 </html>

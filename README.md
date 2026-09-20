@@ -7,10 +7,37 @@ framework and no build step, hosted on Netlify.
 
 The layout is a dark utility bar, a wordmark masthead, then a split hero — an
 oversized serif headline on the left against a portrait panel that bleeds to the
-right edge — with the rest of the page unrolling beneath it. The masthead
-navigation highlights itself as you scroll, driven by an IntersectionObserver at
-the bottom of `index.html`. Below 820px the navigation collapses into a Menu
-button and the hero stacks with the portrait on top.
+right edge — with the rest of the page unrolling beneath it. Below 820px the
+navigation collapses into a Menu button and the hero stacks with the portrait on
+top.
+
+Two widths do the work. `.wrap` is 1180px and carries the chrome, the hero and
+the full-bleed bands. `.wrap.narrow` is 748px (`--measure`) and carries running
+text, which keeps the line length readable.
+
+## Motion
+
+All CSS transitions and transforms; there is no animation library. `site.js`
+adds `.in` to anything carrying `.reveal` as it enters the viewport, using an
+IntersectionObserver that unobserves each element immediately, so a reveal fires
+once and never replays. Put `data-stagger` on a parent and `site.js` numbers its
+children into `--i`, which the CSS multiplies by `--step` (70ms) for a delay.
+
+The timings live as custom properties at the top of `styles.css`: `--reveal`
+460ms, `--hover` 200ms, `--step` 70ms, `--ease` an ease-out curve. The hero runs
+on load instead, sequenced through `nth-child` animation delays.
+
+Two guards matter, and both are structural rather than a switch someone has to
+remember:
+
+- Every reveal and load rule sits inside `@media (prefers-reduced-motion:
+  no-preference)`. A reader who asks for less motion is never served the hidden
+  state at all, so they get the finished page with nothing to disable.
+- Those rules are also scoped to `html.js`, a class `site.js` sets on itself. If
+  the script fails to load, nothing was ever hidden.
+
+Body text never animates on its own — paragraphs fade with the section that
+contains them. Nothing moves while the page is being read.
 
 The type pairing follows [olivercrocco.com](https://olivercrocco.com), used with
 Dr. Crocco's permission. All content here is original.
@@ -25,13 +52,15 @@ re-skins from those few lines.
 
 | Path            | What it is                                              |
 |-----------------|---------------------------------------------------------|
-| `index.html`    | Page one: hero, about, education, current work          |
-| `projects.html` | Projects — an empty state until there is something to show |
-| `resume.html`   | The resume PDF, sized to exactly one screen             |
-| `contact.html`  | Contact links and a note for recruiters                 |
-| `styles.css`    | The design system, shared by all four pages             |
-| `assets/`       | Portrait and resume PDF                                 |
-| `netlify.toml`  | Tells Netlify to publish the folder as it is            |
+| `index.html`            | Page one: hero, about, education, current work |
+| `projects.html`         | Projects — a status panel until there is a write-up |
+| `project-template.html` | Copy this per project for the detail page      |
+| `resume.html`           | The resume PDF, sized to exactly one screen    |
+| `contact.html`          | Contact links and a note for recruiters        |
+| `styles.css`            | The design system, shared by every page        |
+| `site.js`               | Masthead, mobile menu and the scroll reveals   |
+| `assets/`               | Portrait, resume PDF, `projects/` for project images |
+| `netlify.toml`          | Tells Netlify to publish the folder as it is   |
 
 To add another page, copy `contact.html`, change the `<title>`, the `page-head`
 and the body, then add a `<li>` to the nav in **all four** existing pages. The
@@ -43,25 +72,29 @@ what gives it the gold underline.
 into a full-height flex column so the PDF viewer takes whatever height is left
 over and the page never scrolls.
 
-## Adding projects
+## Adding a project
 
-`projects.html` shows an empty state. When there is something to put there,
-replace the `<div class="empty">` block with a grid of cards:
+`projects.html` shows a status panel naming what is in progress. The card grid
+is written directly underneath it, commented out, so nothing false is published
+while there is nothing finished to link to. When the first write-up is done:
 
-```html
-<div class="cards">
-  <a class="card" href="https://github.com/Koda876/...">
-    <div class="tag">Live · 2027</div>
-    <h3>Project name</h3>
-    <p>What it does, in a sentence or two.</p>
-    <p class="meta">tools · you · used</p>
-  </a>
-</div>
-```
+1. Copy `project-template.html` to `project-<name>.html` and fill in the five
+   sections: the problem, the field sketch, the finished drawing, the errors and
+   how they were resolved, and what you would do differently. Replace each
+   `.todo` span and each figure stand-in with the real photograph or drawing
+   (put the files in `assets/projects/`).
+2. Export the same write-up as a PDF to `assets/projects/<name>.pdf` and point
+   the two Download buttons at it.
+3. In `projects.html`, delete the status panel and uncomment the grid, pointing
+   the card at your new page.
 
-The `.cards`, `.card`, `.tag` and `.meta` styles are already in `styles.css`,
-and the first three cards get a green, gold and lapis bar across the top
-automatically.
+A card is an image, a title, two or three lines, a tag row and a footer. Two
+across on desktop, stacked on mobile. Until a photograph exists, swap the
+`p-shot` image for a `p-shot placeholder` div.
+
+To see the card design before you have a project, run the local server and open
+`_preview-cards.html` — a throwaway kept out of the repo by `.gitignore`, so it
+never deploys.
 
 ## Filling in the content
 
@@ -69,12 +102,14 @@ Text I guessed at is wrapped in `<span class="todo">`, which renders with a
 yellow highlight so it is impossible to miss in the browser. To find every one:
 
 ```bash
-grep -n "todo" index.html
+grep -rn "todo" *.html
 ```
 
 Replace the text, delete the surrounding `<span class="todo">` and its `</span>`,
-and the highlight goes away. Two remain: what you want next (in About), and what
-kind of civil engineering you are looking for (in Contact).
+and the highlight goes away. Outstanding: what you want next (About), what kind
+of civil engineering you are looking for (Contact), and the name and description
+of the in-progress project (Projects). `project-template.html` is placeholders
+throughout by design — it is a template, not a page to publish as it stands.
 
 The headshot (`assets/portrait.jpg`) and the resume
 (`assets/ricardo-campbell-resume.pdf`) are in place and wired up.
@@ -109,6 +144,6 @@ One-time setup:
 
 After that, every `git push` to `main` is live in about a minute.
 
-Both pages carry `<meta name="robots" content="noindex">`, which keeps the site
+Every page carries `<meta name="robots" content="noindex">`, which keeps the site
 out of search results while still letting anyone with the link open it. Delete
-that line from `index.html` and `projects.html` when you want to be found.
+that line from each page when you want to be found.

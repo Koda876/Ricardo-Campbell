@@ -112,19 +112,7 @@
   </div>
 </footer>
 
-<script>
-  const mast = document.getElementById('masthead');
-  const onScroll = () => mast.classList.toggle('scrolled', window.scrollY > 8);
-  addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  const btn = document.getElementById('menu-btn');
-  const nav = document.getElementById('mast-nav');
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded', String(open));
-  });
-</script>
+<script src="site.js"></script>
 
 </body>
 </html>
