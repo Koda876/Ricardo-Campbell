@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Placeholder: drawing in progress">
+  <title>Drawing in progress</title>
+
+  <!-- 16:9 so it fills the card slot without cropping. Palette is the site's
+       own — paper-3, line, gold, gold-ink, faint. No new colours. -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#e6d5b8" stroke-width="1"/>
+    </pattern>
+    <pattern id="gridCoarse" width="200" height="200" patternUnits="userSpaceOnUse">
+      <path d="M200 0H0V200" fill="none" stroke="#dcc9a6" stroke-width="1.4"/>
+    </pattern>
+    <marker id="tick" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M5 1V9" stroke="#8f6205" stroke-width="1.6"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="#f2e4cb"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <rect width="1600" height="900" fill="url(#gridCoarse)"/>
+
+  <!-- an outline standing in for the plan -->
+  <g fill="none" stroke="#d99a1c" stroke-width="4" stroke-linejoin="round">
+    <path d="M420 210 H1010 V590 H420 Z"/>
+    <path d="M740 210 V420 M740 420 H1010"/>
+    <path d="M420 420 H560"/>
+    <path d="M1010 300 H1210 V590 H1010"/>
+  </g>
+  <!-- door swings -->
+  <g fill="none" stroke="#d99a1c" stroke-width="2.2" stroke-opacity="0.65">
+    <path d="M620 210 A48 48 0 0 1 668 258"/>
+    <path d="M740 480 A44 44 0 0 0 784 524"/>
+    <path d="M1010 450 H1050"/>
+  </g>
+
+  <!-- dimension line: the detail that says "measured" -->
+  <g stroke="#8f6205" stroke-width="1.6">
+    <path d="M420 660 H1010" marker-start="url(#tick)" marker-end="url(#tick)"/>
+    <path d="M420 600 V670 M1010 600 V670" stroke-width="1" stroke-dasharray="6 6" stroke-opacity="0.6"/>
+  </g>
+
+  <text x="715" y="648" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="22" fill="#8f6205" letter-spacing="3">?</text>
+
+  <text x="800" y="768" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="26" fill="#6f7a74" letter-spacing="8">DRAWING IN PROGRESS</text>
+  <text x="800" y="808" text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="17" fill="#6f7a74" fill-opacity="0.72" letter-spacing="2">placeholder &#8212; replace with the finished plan</text>
+</svg>

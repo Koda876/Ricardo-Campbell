@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" aria-hidden="true">
+  <!-- Decorative line version of the plan, for use as a low-opacity background.
+       Replace this file with a line export of the real AutoCAD drawing when it
+       is finished; nothing else needs to change. No text, no fills. -->
+  <g fill="none" stroke="#0b2419" stroke-width="2.4" stroke-linejoin="round">
+    <path d="M120 120 H760 V470 H120 Z"/>
+    <path d="M470 120 V320 M470 320 H760"/>
+    <path d="M120 320 H270"/>
+    <path d="M760 210 H940 V470 H760"/>
+    <path d="M940 300 H1090"/>
+  </g>
+  <g fill="none" stroke="#0b2419" stroke-width="1.5">
+    <path d="M360 120 A44 44 0 0 1 404 164"/>
+    <path d="M470 372 A40 40 0 0 0 510 412"/>
+    <path d="M760 340 A38 38 0 0 1 798 378"/>
+  </g>
+  <g fill="none" stroke="#0b2419" stroke-width="1.2" stroke-dasharray="7 7">
+    <path d="M120 530 H760"/>
+    <path d="M1090 120 V300"/>
+  </g>
+  <g fill="none" stroke="#0b2419" stroke-width="1.2">
+    <path d="M120 520 V540 M760 520 V540"/>
+    <path d="M1080 120 H1100 M1080 300 H1100"/>
+  </g>
+</svg>

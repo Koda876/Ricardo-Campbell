@@ -11,9 +11,27 @@ right edge — with the rest of the page unrolling beneath it. Below 820px the
 navigation collapses into a Menu button and the hero stacks with the portrait on
 top.
 
-Two widths do the work. `.wrap` is 1180px and carries the chrome, the hero and
-the full-bleed bands. `.wrap.narrow` is 748px (`--measure`) and carries running
-text, which keeps the line length readable.
+Two widths do the work. `.wrap` is 1180px and carries the chrome, the hero, the
+full-bleed bands and the project drawing. `.wrap.narrow` is 748px (`--measure`)
+and carries running text. Alternating the two is what stops the page reading as
+one long column.
+
+## Rhythm
+
+Sections alternate their ground so no two neighbours match. On About that runs
+light (`About`) → cream (`.sec-cream`, Education) → deep green (`.band`,
+Currently) → light (the closer). On Projects it runs cream (the header, carrying
+the plan drawing) → light (the drawing and its text) → deep green (the closer).
+The tints are full-bleed; the text inside stays on the 748px measure.
+
+The left margin is broken in three places, so the page has no single rigid
+vertical line: Currently puts its heading in a sticky 250px column with the
+entries in a wider one beside it; both closers are centred; and the project
+drawing is wider than the paragraph beneath it.
+
+`--nav-h` is the sticky masthead's height (77px, 65px on small screens). Page
+headers pad past it and `scroll-padding-top` is derived from it, so nothing
+lands under the bar.
 
 ## Motion
 
@@ -59,7 +77,9 @@ re-skins from those few lines.
 | `contact.html`          | Contact links and a note for recruiters        |
 | `styles.css`            | The design system, shared by every page        |
 | `site.js`               | Masthead, mobile menu and the scroll reveals   |
-| `assets/`               | Portrait, resume PDF, `projects/` for project images |
+| `assets/`               | Portrait, resume PDF, and `projects/`          |
+| `assets/projects/placeholder.svg` | Stands in for a drawing that is not finished |
+| `assets/projects/plan-line.svg`   | Line-only version used as the faint ground behind the Projects header |
 | `netlify.toml`          | Tells Netlify to publish the folder as it is   |
 
 To add another page, copy `contact.html`, change the `<title>`, the `page-head`
@@ -88,13 +108,15 @@ while there is nothing finished to link to. When the first write-up is done:
 3. In `projects.html`, delete the status panel and uncomment the grid, pointing
    the card at your new page.
 
-A card is an image, a title, two or three lines, a tag row and a footer. Two
-across on desktop, stacked on mobile. Until a photograph exists, swap the
-`p-shot` image for a `p-shot placeholder` div.
+The drawing leads: `.p-feature-shot` runs the full 1180px container at 16:9,
+with the title and description on the 748px measure beneath it. Replace
+`assets/projects/placeholder.svg` with the finished drawing and the layout does
+not change.
 
-To see the card design before you have a project, run the local server and open
-`_preview-cards.html` — a throwaway kept out of the repo by `.gitignore`, so it
-never deploys.
+When the AutoCAD plan is done, also export a line-only version over
+`assets/projects/plan-line.svg`. It is already wired up as the faint ground
+behind the Projects header (`.page-head.with-drawing`, 7% opacity), so that
+swap alone makes the decoration specific to the work. Nothing else to edit.
 
 ## Filling in the content
 

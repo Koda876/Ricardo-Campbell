@@ -62,7 +62,7 @@
 
 <main>
 
-  <div class="page-head">
+  <div class="page-head with-drawing">
     <div class="wrap narrow">
       <p class="eyebrow">Projects</p>
       <h1>Things I build</h1>
@@ -70,62 +70,57 @@
     </div>
   </div>
 
+  <!-- ============ the drawing leads: wide image, narrow text beneath ============ -->
   <section>
-    <div class="wrap narrow">
+    <div class="wrap media-wide reveal">
+      <img class="p-feature-shot"
+           src="assets/projects/placeholder.svg"
+           alt="Placeholder standing in for the apartment floor plan, which is still being drawn"
+           width="1600" height="900">
+    </div>
 
-      <div class="status-panel reveal">
-        <p class="sec-label">In progress</p>
-        <h2><span class="todo">As-built apartment survey</span></h2>
+    <div class="wrap narrow p-feature-body reveal">
+      <ul class="tagrow">
+        <li class="state">In progress</li>
+        <li>Field survey</li>
+        <li>AutoCAD</li>
+        <li>Hand sketch</li>
+      </ul>
+      <h2><span class="todo">As-built apartment survey</span></h2>
+      <div class="prose">
         <p>
           <span class="todo">Measuring an existing apartment and drawing it to scale &mdash;
-          field sketch, dimensions taken on site, then a finished plan. Replace this
-          paragraph with two plain sentences about what the work actually involves.</span>
+          field sketch, dimensions taken on site, then a finished plan. Replace this with
+          two plain sentences about what the work actually involves.</span>
         </p>
         <p>
-          The write-up goes up here when the drawing is finished: the problem, the field
+          The write-up goes here when the drawing is finished: the problem, the field
           sketch, the final plan, the errors I found and fixed, and what I would do
-          differently.
+          differently. It will be readable on the page and downloadable as a PDF.
         </p>
       </div>
+      <p class="p-feature-cap">
+        The image above is a placeholder. It is replaced by the finished drawing, and the
+        same line work becomes the faint plan behind the heading at the top of this page.
+      </p>
+    </div>
+  </section>
 
-      <!-- ============================================================
-           PROJECT CARDS
-
-           When the first write-up is finished, delete the status panel above,
-           uncomment this grid, and fill in one <a class="p-card"> per project.
-           Two across on desktop, stacked on mobile. Add class="reveal" to each
-           card and data-stagger on the grid so they arrive in sequence.
-
-      <div class="p-grid" data-stagger>
-
-        <a class="p-card reveal" href="project-apartment-survey.html">
-          <!-- With a photo. Until there is one, swap this <img> for:
-               <div class="p-shot placeholder">Project photograph</div> -->
-          <img class="p-shot" src="assets/projects/apartment-survey.jpg"
-               alt="Finished floor plan of the surveyed apartment"
-               width="1200" height="750" loading="lazy">
-          <div class="p-body">
-            <h3>As-built apartment survey</h3>
-            <p>
-              Measured an existing apartment on site and drew it to scale. Two
-              dimensions disagreed by 40mm; the write-up shows how I found which
-              one was wrong.
-            </p>
-            <ul class="p-tags">
-              <li>Field survey</li>
-              <li>AutoCAD</li>
-              <li>Hand sketch</li>
-            </ul>
-            <div class="p-foot">
-              <span class="go">Read the write-up &rarr;</span>
-              <span class="pdf">PDF &middot; 6 pages</span>
-            </div>
-          </div>
-        </a>
-
+  <!-- ============ closer: the dark step, centred ============ -->
+  <section class="band cta">
+    <div class="wrap narrow centered reveal">
+      <p class="sec-label">While you wait</p>
+      <h2>Nothing published yet</h2>
+      <div class="prose">
+        <p>
+          This is my first year of the degree and my first project is being drawn now.
+          When it is finished it goes up here in full, with the source on GitHub.
+        </p>
       </div>
-      ============================================================ -->
-
+      <div class="btn-row">
+        <a class="btn on-dark" href="https://github.com/Koda876" target="_blank" rel="noopener">Follow along on GitHub</a>
+        <a class="btn on-dark ghost" href="contact.html">Get in touch</a>
+      </div>
     </div>
   </section>
 
