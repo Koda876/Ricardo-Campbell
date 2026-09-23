@@ -46,7 +46,4 @@
   <text x="800" y="768" text-anchor="middle"
         font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
         font-size="26" fill="#6f7a74" letter-spacing="8">DRAWING IN PROGRESS</text>
-  <text x="800" y="808" text-anchor="middle"
-        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-        font-size="17" fill="#6f7a74" fill-opacity="0.72" letter-spacing="2">placeholder &#8212; replace with the finished plan</text>
 </svg>
