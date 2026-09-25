@@ -303,6 +303,10 @@ section { padding: clamp(58px, 7vw, 92px) 0; }
 .btn:hover { background: var(--ink-2); border-color: var(--ink-2); transform: translateY(-2px); box-shadow: 0 6px 16px #16261f1f; }
 .btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
 .btn.ghost:hover { border-color: var(--gold); background: var(--paper-2); color: var(--ink); }
+/* the gold twin of .btn: same weight as the green one, different colour, so
+   two equally important links do not read as one green slab */
+.btn.gold { background: var(--gold); border-color: var(--gold); color: var(--ink-2); }
+.btn.gold:hover { background: var(--ink-2); border-color: var(--ink-2); color: var(--gold-lit); }
 .btn.on-dark { background: var(--gold); border-color: var(--gold); color: var(--ink-2); }
 .btn.on-dark:hover { background: var(--gold-lit); border-color: var(--gold-lit); color: var(--ink-2); }
 .btn.on-dark.ghost { background: transparent; color: var(--paper); border-color: #ffffff4d; }
