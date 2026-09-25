@@ -33,6 +33,24 @@ drawing is wider than the paragraph beneath it.
 headers pad past it and `scroll-padding-top` is derived from it, so nothing
 lands under the bar.
 
+## Phones
+
+Below 820px the navigation collapses to a Menu button, the hero stacks with the
+portrait on top, and every button in a `.btn-row` goes full width — three of them
+were otherwise stacking into ragged rows of different lengths.
+
+Tap targets are padded to 44px, which is what Apple and Android both ask for.
+The utility-bar links, the Menu button and the footer links were 14px to 21px
+before; padding does the work, so nothing moves visually. Inline links inside
+running text are left alone, since a 44px line in a paragraph would look wrong.
+
+`.wrap` pads with `max(var(--gutter), env(safe-area-inset-*))` so content clears
+the notch when a phone is held sideways, and `-webkit-text-size-adjust: 100%`
+stops iOS inflating type on rotation. Below 620px the project drawing switches
+from 16:9 to 4:3, because a 16:9 image is only about 180px tall on a handset.
+
+Checked at 320, 375 and 1280px: no horizontal overflow on any page.
+
 ## Motion
 
 All CSS transitions and transforms; there is no animation library. `site.js`
