@@ -698,25 +698,25 @@ a.p-card:hover .p-foot .go { color: var(--ink-2); }
 }
 
 /* ---------- the plan as a decorative ground ---------- */
-/* Swap assets/projects/plan-line.svg for a line export of the finished
-   drawing and this becomes specific to the work. Opacity is kept low enough
-   that body text over it still clears contrast comfortably. */
+/* The plan itself, line-only and near-transparent. Drop a newer export over
+   assets/projects/plan-line.png to update it. Opacity is kept low enough that
+   the heading over it still clears contrast comfortably. */
 
 .page-head.with-drawing { background-image: none; background-color: var(--paper-2); }
 .page-head.with-drawing::before {
   content: "";
   position: absolute; inset: 0;
-  background-image: url("assets/projects/plan-line.svg");
+  background-image: url("assets/projects/plan-line.png");
   background-repeat: no-repeat;
-  background-position: right -60px center;
-  background-size: auto 150%;
-  opacity: 0.07;
+  background-position: right 3% center;
+  background-size: auto 86%;
+  opacity: 0.09;
   pointer-events: none;
 }
 .page-head.with-drawing > .wrap { position: relative; z-index: 1; }
 
 @media (max-width: 900px) {
-  .page-head.with-drawing::before { background-position: right -180px center; opacity: 0.05; }
+  .page-head.with-drawing::before { background-position: right -22% center; background-size: auto 70%; opacity: 0.06; }
 }
 
 

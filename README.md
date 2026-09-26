@@ -96,8 +96,8 @@ re-skins from those few lines.
 | `styles.css`            | The design system, shared by every page        |
 | `site.js`               | Masthead, mobile menu and the scroll reveals   |
 | `assets/`               | Portrait, resume PDF, and `projects/`          |
-| `assets/projects/placeholder.svg` | Stands in for a drawing that is not finished |
-| `assets/projects/plan-line.svg`   | Line-only version used as the faint ground behind the Projects header |
+| `assets/projects/apartment-survey.png` | The drawing, on the site's own paper |
+| `assets/projects/plan-line.png`        | Line-only version, the faint ground behind the Projects header |
 | `netlify.toml`          | Tells Netlify to publish the folder as it is   |
 
 To add another page, copy `contact.html`, change the `<title>`, the `page-head`
@@ -127,14 +127,16 @@ while there is nothing finished to link to. When the first write-up is done:
    the card at your new page.
 
 The drawing leads: `.p-feature-shot` runs the full 1180px container at 16:9,
-with the title and description on the 748px measure beneath it. Replace
-`assets/projects/placeholder.svg` with the finished drawing and the layout does
-not change.
+with the title and description on the 748px measure beneath it. Drop a newer
+export over `assets/projects/apartment-survey.png` and the layout does not
+change.
 
-When the AutoCAD plan is done, also export a line-only version over
-`assets/projects/plan-line.svg`. It is already wired up as the faint ground
-behind the Projects header (`.page-head.with-drawing`, 7% opacity), so that
-swap alone makes the decoration specific to the work. Nothing else to edit.
+AutoCAD exports white linework on its dark model-space ground, which does not
+belong on this palette. Both images here were made from that export by cropping
+to the linework, normalising the ground away and remapping luminance onto
+`--paper-3` and an ink close to `--ink-2`. A cleaner route for the next one is
+to plot with `monochrome.ctb` and a Window around the plan, which gives black on
+white straight out of AutoCAD.
 
 ## Filling in the content
 
