@@ -2,3 +2,9 @@
 node_modules/
 .netlify/
 _preview-*.html
+
+# AutoCAD working files - the site publishes this folder, so keep CAD out of it
+*.dwg
+*.dwl
+*.dwl2
+*.bak
